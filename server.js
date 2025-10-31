@@ -20,7 +20,8 @@ app.get('/multiply', (req, res) => {
 
 app.get('/divide', (req, res) => {
   const { a, b } = req.query;
-  if (Number(b) === 0) return res.status(400).json({ error: "Cannot divide by zero" });
+  if (Number(b) === 0)
+    return res.status(400).json({ error: 'Cannot divide by zero' });
   res.json({ result: Number(a) / Number(b) });
 });
 

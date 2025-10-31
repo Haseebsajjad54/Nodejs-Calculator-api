@@ -15,19 +15,15 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Give Jest permission to run
-        run: chmod +x ./node_modules/.bin/jest
-
-      - name: Run tests
-        run: npx jest
-
+      - name: Run tests with Jest
+        run: npm test
